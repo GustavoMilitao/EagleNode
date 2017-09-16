@@ -1,24 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿'use strict';
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-namespace EagleEntities
-{
-    public class Car
-    {
-        public int ID { get; set; }
-
-        public int IDCarModel { get; set; }
-
-        public int IDUser { get; set; }
-
-        public CarModel CarModel { get; set; }
-
-        public CarCustoma Customa { get; set; }
-
-        public User User { get; set; }
-
+var Car = new Schema( {
+    CarModel: {
+      ID: { type: String, default: "" },
+      ModelName: { type: String, default: "" },
+      Brand: { type: String, default: "" },
+      Year: { type: String, default: "" },
+      Potency: { type: String, default: "" },
+      Flex: { type: Boolean, default: false }
+    },
+    Customa: {
+      ID: { type: String, default: "" },
+      CarPiecesCustoma: { type: Array, default: [] },
+      TotalCustomaValuePerKm: Number
+    },
+    ConsumptionCost: {
+      ID: { type: String, default: "" },
+      GasKmPerLiter: Number,
+      GasPrice: Number,
+      GasPricePerKm: Number,
+      RegDate: Date,
     }
-}
+  });
+
+  module.exports = mongoose.model('Car', Car);

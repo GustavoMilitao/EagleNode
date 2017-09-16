@@ -1,29 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿'use strict';
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-namespace EagleEntities
-{
+var CreditCard = new Schema( {
+    NameInCard: { type: String, default: "" },
+    CardNumber: { type: String, default: "" },
+    ValidTru: Date,
+    CVV: { type: String, default: "" },
+    Active: { type: String, default: "" },
+  });
 
-    public class CreditCard
-    {
-        public int ID { get; set; }
-
-        public int IDPaymentMethod { get; set; }
-
-        public string NameInCard { get; set; }
-
-        public string CardNumber { get; set; }
-
-        public DateTime ValidTru { get; set; }
-
-        public string CVV { get; set; }
-
-        public DateTime RegDate { get; set; }
-
-        public PaymentMethod PaymentMethod { get; set; }
-
-    }
-}
+  module.exports = mongoose.model('CreditCard', CreditCard);

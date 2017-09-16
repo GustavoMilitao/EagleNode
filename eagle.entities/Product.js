@@ -1,30 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿'use strict';
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-namespace EagleEntities
-{
-    public class Product
-    {
-        public int ID { get; set; }
+var Product = new Schema( {
+    Description: { type: String, default: "" },
+    Name: { type: String, default: "" },
+    Returnable: { type: Boolean, default: false },
+    SinglePrice: Number,
+    Available: { type: String, default: "" },
+  });
 
-        public int IDUserDistributor { get; set; }
-
-        public string Description { get; set; }
-
-        public string Name { get; set; }
-
-        public bool? Returnable { get; set; }
-
-        public double SinglePrice { get; set; }
-
-        public bool? Available { get; set; }
-
-        public DateTime RegDate { get; set; }
-
-        public User Distributor { get; set; }
-
-    }
-}
+  module.exports = mongoose.model('Product', Product);

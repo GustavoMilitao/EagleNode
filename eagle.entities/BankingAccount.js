@@ -1,30 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿'use strict';
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-namespace EagleEntities
-{
-    public class BankingAccount
-    {
-        public int ID { get; set; }
+var BankingAccount = new Schema( {
+    ID: { type: String, default: "" },
+    IDUser: { type: String, default: "" },
+    Bankcode: { type: String, default: "" },
+    Bankname: { type: String, default: "" },
+    Agency: { type: String, default: "" },
+    CurrentAccount: { type: String, default: "" },
+    Digit: { type: String, default: "" },
+    RegDate: Date,
+    User: { type: String, default: "" }
+  });
 
-        public int IDUser { get; set; }
-
-        public string Bankcode { get; set; }
-
-        public string Bankname { get; set; }
-
-        public string Agency { get; set; }
-
-        public string CurrentAccount { get; set; }
-
-        public string Digit { get; set; }
-
-        public DateTime RegDate { get; set; }
-
-        public User User { get; set; }
-
-    }
-}
+  module.exports = mongoose.model('BankingAccount', Team);

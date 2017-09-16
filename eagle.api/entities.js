@@ -1,4 +1,4 @@
-Customer ={
+var Customer = new Schema( {
   ID: { type: String, default: "" },
   Name: { type: String, default: "" },
   Address: { type: String, default: "" },
@@ -12,11 +12,13 @@ Customer ={
   Nickname: { type: String, default: "" },
   Password: { type: String, default: "" },
   Email: { type: String, default: "" },
-  PaymentMethods : { type: Array, default : [] },
+  PaymentMethods: { type: Array, default: [] },
   RegDate: Date,
-}
+  CreditCards: { type: Array, default: [] },
+  BankingAccounts: { type: Array, default: [] }
+});
 
-Distributor ={
+var Distributor = new Schema( {
   ID: { type: String, default: "" },
   Name: { type: String, default: "" },
   Address: { type: String, default: "" },
@@ -31,9 +33,10 @@ Distributor ={
   Password: { type: String, default: "" },
   Email: { type: String, default: "" },
   RegDate: Date,
-}
+  BankingAccounts: { type: Array, default: [] }
+});
 
-Driver = {
+var Driver = new Schema( {
   Name: { type: String, default: "" },
   Address: { type: String, default: "" },
   State: { type: String, default: "" },
@@ -47,20 +50,19 @@ Driver = {
   Password: { type: String, default: "" },
   Email: { type: String, default: "" },
   RegDate: Date,
-  DriverGain: { 
-      ID: { type: String, default: "" },
-      NetGainPerKm: Number,
-      RegDate: Date,
-      Car: { type : String, default : "" }
-    
-   },
-  
+  DriverGain: {
+    ID: { type: String, default: "" },
+    NetGainPerKm: Number,
+    RegDate: Date,
+    Car: { type: String, default: "" }
+
+  },
   Cars: { type: Array, default: [] },
   // Criar uma coleção para estes arrays e fazer referência do ID aqui.
-  BankingAccounts : { type: Array, default: [] }
-}
+  BankingAccounts: { type: Array, default: [] }
+});
 
-BankingAccount = {
+var BankingAccount = new Schema( {
   ID: { type: String, default: "" },
   IDUser: { type: String, default: "" },
   Bankcode: { type: String, default: "" },
@@ -70,94 +72,71 @@ BankingAccount = {
   Digit: { type: String, default: "" },
   RegDate: Date,
   User: { type: String, default: "" }
-}
+});
 
-Car = { 
-  CarModel: { 
+var Car = new Schema( {
+  CarModel: {
     ID: { type: String, default: "" },
     ModelName: { type: String, default: "" },
     Brand: { type: String, default: "" },
     Year: { type: String, default: "" },
     Potency: { type: String, default: "" },
     Flex: { type: Boolean, default: false }
-   },
-  Customa: { 
+  },
+  Customa: {
     ID: { type: String, default: "" },
     CarPiecesCustoma: { type: Array, default: [] },
     TotalCustomaValuePerKm: Number
-   },
-   ConsumptionCost : {
+  },
+  ConsumptionCost: {
     ID: { type: String, default: "" },
     GasKmPerLiter: Number,
     GasPrice: Number,
     GasPricePerKm: Number,
     RegDate: Date,
-   }
-}
+  }
+});
 
-CarPieceCustoma ={  
+var CarPieceCustoma = new Schema( {
   Name: { type: String, default: "" },
   KmToChange: Number,
   ValueToChange: Number,
-}
+});
 
-CreditCard = { 
+var CreditCard = new Schema( {
   NameInCard: { type: String, default: "" },
   CardNumber: { type: String, default: "" },
   ValidTru: Date,
   CVV: { type: String, default: "" },
-  RegDate: Date,
-}
+  Active: { type: String, default: "" },
+});
 
-Freight = { 
-  TotalFreightCostPerKm: Number,
-  TotalFreight: Number,
-  RegDate: Date,
-}
-
-Order = {
+var Order = new Schema( {
   ID: { type: String, default: "" },
   IDCustomer: { type: String, default: "" },
   IDDistributor: { type: String, default: "" },
   IDDriver: { type: String, default: "" },
   TotalPrice: Number,
-  ProductsList: { type : Array, default : [] },
-  Freight : { 
+  ProductsList: { type: Array, default: [] },
+  Freight: {
     TotalFreightCostPerKm: Number,
     TotalFreight: Number,
-   },
-  Payments: { type : Array, default: [] },
-}
+  },
+  Payments: { type: Array, default: [] },
+});
 
-OrderPayment = { 
+var OrderPayment = new Schema( {
   IDPayMethod: { type: String, default: "" },
   IDOrder: { type: String, default: "" },
-  Value: Number,
-}
-
-PaymentMethod = { 
   PaymentType: { type: String, default: "" },
-  Active: { type: String, default: "" },
-}
+  Value: Number,
+});
 
-PaymentType = { 
-  Description: { type: String, default: "" }
-}
-
-Product = { 
-  ID: { type: String, default: "" },
-  IDUserDistributor: { type: String, default: "" },
+var Product = new Schema( {
   Description: { type: String, default: "" },
   Name: { type: String, default: "" },
-  Returnable: { type: String, default: "" },
+  Returnable: { type: Boolean, default: false },
   SinglePrice: Number,
   Available: { type: String, default: "" },
-  RegDate: Date,
-  Distributor: { type: String, default: "" }
-}
-
-UserType = { 
-  ID: { type: String, default: "" },
-  Type: { type: String, default: "" }
-}
+});
 

@@ -1,34 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿'use strict';
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-namespace EagleEntities
-{
-    public class Order
-    {
-        public int ID { get; set; }
+var Order = new Schema( {
+    ID: { type: String, default: "" },
+    IDCustomer: { type: String, default: "" },
+    IDDistributor: { type: String, default: "" },
+    IDDriver: { type: String, default: "" },
+    TotalPrice: Number,
+    ProductsList: { type: Array, default: [] },
+    Freight: {
+      TotalFreightCostPerKm: Number,
+      TotalFreight: Number,
+    },
+    Payments: { type: Array, default: [] }
+  });
 
-        public int IDUser { get; set; }
-
-        public int IDDistributor { get; set; }
-
-        public int IDDriver { get; set; }
-
-        public double TotalPrice { get; set; }
-
-        public List<Product> ProductsList { get; set; }
-
-        public List<OrderPayment> Payments { get; set; }
-
-        public DateTime RegDate { get; set; }
-
-        public User User { get; set; }
-
-        public User Distributor { get; set; }
-
-        public User Driver { get; set; }
-
-    }
-}
+  module.exports = mongoose.model('Order', Order);

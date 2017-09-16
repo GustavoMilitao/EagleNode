@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var Distributor = new Schema( {
+var Distributor = new Schema({
   ID: { type: String, default: "" },
   Name: { type: String, default: "" },
   Address: { type: String, default: "" },
@@ -20,4 +20,4 @@ var Distributor = new Schema( {
   BankingAccounts: { type: Array, default: [] }
 });
 
-  module.exports = mongoose.model('Customer', Customer);
+module.exports = mongoose.model('Distributors', Distributor);

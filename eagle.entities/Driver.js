@@ -28,4 +28,4 @@ var Driver = new Schema( {
   BankingAccounts: { type: Array, default: [] }
 });
 
-module.exports = mongoose.model('Driver', Driver);
+module.exports = mongoose.model('Drivers', Driver);

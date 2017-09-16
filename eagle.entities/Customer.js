@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var Customer = new Schema( {
+var Customer = new Schema({
     ID: { type: String, default: "" },
     Name: { type: String, default: "" },
     Address: { type: String, default: "" },
@@ -20,6 +20,6 @@ var Customer = new Schema( {
     RegDate: Date,
     CreditCards: { type: Array, default: [] },
     BankingAccounts: { type: Array, default: [] }
-  });
+});
 
-  module.exports = mongoose.model('Customer', Customer);
+module.exports = mongoose.model('Customers', Customer);

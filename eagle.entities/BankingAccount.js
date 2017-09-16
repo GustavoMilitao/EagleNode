@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var BankingAccount = new Schema( {
+var BankingAccount = new Schema({
     ID: { type: String, default: "" },
     IDUser: { type: String, default: "" },
     Bankcode: { type: String, default: "" },
@@ -12,6 +12,6 @@ var BankingAccount = new Schema( {
     Digit: { type: String, default: "" },
     RegDate: Date,
     User: { type: String, default: "" }
-  });
+});
 
-  module.exports = mongoose.model('BankingAccount', Team);
+module.exports = mongoose.model('BankingAccounts', BankingAccount);

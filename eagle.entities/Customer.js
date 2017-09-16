@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Customer = new Schema({
-    ID: { type: String, default: "" },
     Name: { type: String, default: "" },
     Address: { type: String, default: "" },
     State: { type: String, default: "" },

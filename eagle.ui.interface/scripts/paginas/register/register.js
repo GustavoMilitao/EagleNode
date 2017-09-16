@@ -1,4 +1,4 @@
-﻿var app = aangular.module('eagle' []);
+﻿var app = angular.module('eagle', []);
 app.controller('registerCtrl', function ($scope, $http, $timeout) {
     $scope.form = {
         user: "",
@@ -9,6 +9,7 @@ app.controller('registerCtrl', function ($scope, $http, $timeout) {
     $scope.telaLogin = function(){
         window.location.href = "/";
     }
+    $scope.tipoUser = 0;
     $scope.senhasDifer = false;
     $scope.usuarioCadastrado = false;
 

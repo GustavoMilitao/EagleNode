@@ -1,2 +1,2 @@
-cd C:\Users\Kaioso\pokedeck
+cd D:\Gustavo\EagleNode
 npm run start

@@ -2,8 +2,17 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
-  user = require('./eagle.entities/user'), 
-  team = require('./eagle.entities/team'), 
+  BankingAccount = require('./eagle.entities/BankingAccount'), 
+  Car = require('./eagle.entities/Car'), 
+  CarPieceCustoma = require('./eagle.entities/CarPieceCustoma'), 
+  CreditCar = require('./eagle.entities/CreditCard'), 
+  Customer = require('./eagle.entities/Customer'), 
+  Distributor = require('./eagle.entities/Distributor'), 
+  Driver = require('./eagle.entities/Driver'), 
+  Order = require('./eagle.entities/Order'), 
+  OrderPayment = require('./eagle.entities/OrderPayment'), 
+  Product = require('./eagle.entities/Product'), 
+
 
   bodyParser = require('body-parser');
   
@@ -23,19 +32,31 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-var routesPokemon = require('./eagle.api/routes/pokemonRoutes');
-var routesSkill = require('./eagle.api/routes/skillRoutes');    
-var routesUser = require('./eagle.api/routes/userRoutes');      
-var routesTeam = require('./eagle.api/routes/teamRoutes');      
+var routesBankingAccount = require('./eagle.api/routes/BankingAccountRoutes');
+var routesCarPieceCustoma = require('./eagle.api/routes/CarPieceCustomaRoutes');
+var routesCar = require('./eagle.api/routes/CarRoutes');
+var routesCreditCard = require('./eagle.api/routes/CreditCardRoutes');
+var routesCustomer = require('./eagle.api/routes/CustomerRoutes');
+var routesDistributor = require('./eagle.api/routes/DistributorRoutes');
+var routesDriver = require('./eagle.api/routes/DriverRoutes');
+var routesOrderPayment = require('./eagle.api/routes/OrderPaymentRoutes');
+var routesOrder = require('./eagle.api/routes/OrderRoutes');
+var routesProduct = require('./eagle.api/routes/ProductRoutes');
 var routesLogin = require('./eagle.core/routes/loginRoutes');    
 var routesHome = require('./eagle.core/routes/homeRoutes');      
 
-routesTeam(app); 
-routesPokemon(app);
-routesSkill(app); 
-routesUser(app); 
-routesLogin(app);
-routesHome(app);
+routesBankingAccount(app); 
+routesCarPieceCustoma(app); 
+routesCar(app); 
+routesCreditCard(app); 
+routesCustomer(app); 
+routesDistributor(app); 
+routesDriver(app); 
+routesOrderPayment(app); 
+routesOrder(app); 
+routesProduct(app); 
+routesLogin(app); 
+routesHome(app); 
 
 var path = require('path');
 

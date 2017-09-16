@@ -3,7 +3,7 @@
 
 var sess;
 var mongoose = require('mongoose'),
-  User = mongoose.model('Users');
+  Customer = mongoose.model('Customers');
 var path = require("path");
 
 exports.default_page = function (req, res) {
@@ -11,14 +11,14 @@ exports.default_page = function (req, res) {
   if (cookie) {
     res.redirect("/home")
   } else {
-    res.render(path.join(__dirname + "/../../..//eagle.ui.interface/views/login/index.html"));
+    res.render(path.join(__dirname + "/../../eagle.ui.interface/views/login/index.html"));
   }
 };
 
 
 exports.login = function (req, res) {
   var query = { email: req.body.email, password: req.body.password };
-  var user = User.find(query, function (err, result) {
+  var user = Customer.find(query, function (err, result) {
     if (err)
       res.send(err);
     var us = result[0];
@@ -35,23 +35,23 @@ exports.register_page = function (req, res) {
   // if (cookie) {
   //   res.redirect("/home")
   // } else {
-  res.render(path.join(__dirname + "/../../..//eagle.ui.interface/views/register/index.html"));
+  res.render(path.join(__dirname + "/../../eagle.ui.interface/views/register/index.html"));
   // }
 };
 
 exports.register_done_page = function (req, res) {
-  res.render(path.join(__dirname + "/../../..//eagle.ui.interface/views/registerDone/index.html"));
+  res.render(path.join(__dirname + "/../../eagle.ui.interface/views/registerDone/index.html"));
 };
 
 exports.register = function (req, res) {
   var query = { email: req.body.email };
-  User.find(query, function (err, user) {
+  Customer.find(query, function (err, user) {
     if (err)
       res.send(err);
     if (user.length > 0) {
       res.send({ success: false });
     } else {
-      var new_user = new User(req.body);
+      var new_user = new Customer(req.body);
       new_user.save(function (err, user) {
         if (err)
           res.send(err);

@@ -1,21 +1,47 @@
-'use strict';
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace EagleEntities
+{
+    public class User
+    {
+        public int ID { get; set; }
 
-var User = new Schema({
-  user: {
-    type: String,
-    default: ""
-  },
-  email: {
-    type: String,
-    default: ""
-  },
-  password: {
-    type: String,
-    default: ""
-  }
-});
+        public string Name { get; set; }
 
-module.exports = mongoose.model('Users', User);
+        public string Address { get; set; }
+
+        public string State { get; set; }
+
+        public string City { get; set; }
+
+        public string Addresscode { get; set; }
+
+        public string Country { get; set; }
+
+        public string DDI { get; set; }
+
+        public string DDD { get; set; }
+
+        public string Phonenumber { get; set; }
+
+        public string Nickname { get; set; }
+
+        public string Password { get; set; }
+
+        public string Email { get; set; }
+
+        public int UserType { get; set; }
+
+        public DateTime RegDate { get; set; }
+
+        public DriverGain DriverGain { get; set; }
+
+        public UserType Type { get; set; }
+        public List<Car> Cars { get; set; }
+
+    }
+}

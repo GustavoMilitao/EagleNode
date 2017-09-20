@@ -147,3 +147,7 @@ textarea {
 footer p {
     color:white;
 }
+
+.login-dp .form-group input {
+    margin-bottom: 2% !important;
+}

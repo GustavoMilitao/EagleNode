@@ -15,33 +15,18 @@
         <div class="row" ng-app="eagle" ng-cloak>
             <div align="center" class="col-xs-12 col-sm-4 col-md-4 col-lg-3 col-centered">
                 <form ng-submit="submitForm()" class="login-dp" ng-controller="registerCtrl">
-                    <h1>POKEDECK</h1>
                     <h6 class="fonte-login-incorreto" ng-show="usuarioCadastrado">Usuário já cadastrado</h6>
                     <h6 class="fonte-login-incorreto" ng-show="senhasDifer">Senhas diferem</h6>
-                    <div class="col-md-12 col-sm-12 col-lg-12 espacado">
+                    <div class="col-md-12 col-sm-12 col-lg-12 espacado form-group">
                         <h4>Castrastro</h4>
                         <div ng-show="tipoUser == 0">
-                            <div class="form-group">
-                                <input ng-model="form.user" class="form-control" id="nome" placeholder="Nome" required>
-                            </div>
-                            <div class="form-group">
-                                <input ng-model="form.endereco" class="form-control" id="endereco" placeholder="Endereço" required>
-                            </div>
-                            <div class="form-group">
-                                <input ng-model="form.estado" maxlength="2" class="form-control" id="user" placeholder="Estado" required>
-                            </div>
-                            <div class="form-group">
-                                <input ng-model="form.user" class="form-control" id="user" placeholder="Cidade" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" ng-model="form.email" class="form-control" id="email" placeholder="Email" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" ng-model="form.password" class="form-control" id="password" placeholder="Senha" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="password" ng-model="form.password1" class="form-control" id="password" placeholder="Confirme a Senha" required>
-                            </div>
+                            <input ng-model="register.nome" class="form-control" id="nome" placeholder="Nome" required>
+                            <input ng-model="register.endereco" class="form-control" id="endereco" placeholder="Endereço" required>
+                            <input ng-model="register.estado" maxlength="2" class="form-control" id="user" placeholder="Estado" required>
+                            <input ng-model="register.cidade" class="form-control" id="user" placeholder="Cidade" required>
+                            <input type="email" ng-model="register.email" class="form-control" id="email" placeholder="Email" required>
+                            <input type="password" ng-model="register.password" class="form-control" id="password" placeholder="Senha" required>
+                            <input type="password" ng-model="register.password1" class="form-control" id="password" placeholder="Confirme a Senha" required>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6 col-sm-6 col-lg-6 espacado">
@@ -53,14 +38,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div ng-show="tipoUser == 1">
-                        </div>
-                        <div ng-show="tipoUser == 2">
-                        </div>
                     </div>
-                </form>
+            </div>
+            <div ng-show="tipoUser == 1">
+            </div>
+            <div ng-show="tipoUser == 2">
             </div>
         </div>
+        </form>
+    </div>
+    </div>
     </div>
     <script src="/eagle.ui.interface/scripts/frameworks/jquery-1.10.2.min.js"></script>
     <script src="/eagle.ui.interface/scripts/frameworks/modernizr-2.6.2.js"></script>

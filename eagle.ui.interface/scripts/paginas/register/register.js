@@ -1,7 +1,10 @@
 ﻿var app = angular.module('eagle', []);
 app.controller('registerCtrl', function ($scope, $http, $timeout) {
-    $scope.form = {
-        user: "",
+    $scope.register = {
+        nome: "",
+        endereco: "",
+        estado: "",
+        cidade: "",
         email: "",
         password: "",
         password1: ""
@@ -45,7 +48,10 @@ function registrarUsuario($scope, $http, $timeout){
             'Content-Type': "application/json"
           },
         data: {
-            user: $scope.form.user,
+            nome: $scope.form.nome,
+            endereco: $scope.form.endereco,
+            estado: $scope.form.estado,
+            cidade: $scope.form.cidade,
             email: $scope.form.email,
             password: $scope.form.password
         }

@@ -7,7 +7,8 @@ app.controller('registerCtrl', function ($scope, $http, $timeout) {
         cidade: "",
         email: "",
         password: "",
-        password1: ""
+        password1: "",
+        type: 0
     };
     $scope.telaLogin = function(){
         window.location.href = "/";
@@ -29,7 +30,7 @@ app.controller('registerCtrl', function ($scope, $http, $timeout) {
         $scope.usuarioCadastrado = false;
     };
     $scope.submitForm = function () {
-        if($scope.form.password != $scope.form.password1){
+        if($scope.register.password != $scope.register.password1){
             $scope.senhasDiferem();
             $timeout(function () { 
                 $scope.hideSenhasDiferem();
@@ -48,12 +49,13 @@ function registrarUsuario($scope, $http, $timeout){
             'Content-Type': "application/json"
           },
         data: {
-            nome: $scope.form.nome,
-            endereco: $scope.form.endereco,
-            estado: $scope.form.estado,
-            cidade: $scope.form.cidade,
-            email: $scope.form.email,
-            password: $scope.form.password
+            Name: $scope.register.nome,
+            Address: $scope.register.endereco,
+            State: $scope.register.estado,
+            City: $scope.register.cidade,
+            Email: $scope.register.email,
+            Password: $scope.register.password,
+            type : $scope.register.type
         }
     })
         .then(function (success) {

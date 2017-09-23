@@ -15,11 +15,11 @@ var Driver = new Schema( {
   Nickname: { type: String, default: "" },
   Password: { type: String, default: "" },
   Email: { type: String, default: "" },
-  RegDate: Date,
+  RegDate: { type : Date, default: null },
   DriverGain: {
     ID: { type: String, default: "" },
     NetGainPerKm: Number,
-    RegDate: Date,
+    RegDate: { type : Date, default: null },
     Car: { type: String, default: "" }
 
   },

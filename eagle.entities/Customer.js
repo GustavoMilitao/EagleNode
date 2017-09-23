@@ -16,7 +16,7 @@ var Customer = new Schema({
     Password: { type: String, default: "" },
     Email: { type: String, default: "" },
     PaymentMethods: { type: Array, default: [] },
-    RegDate: Date,
+    RegDate: { type : Date, default: null },
     CreditCards: { type: Array, default: [] },
     BankingAccounts: { type: Array, default: [] }
 });

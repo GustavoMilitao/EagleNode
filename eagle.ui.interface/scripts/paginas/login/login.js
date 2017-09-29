@@ -7,14 +7,15 @@
             }
         });
     }]);
-
+var language = "pt-BR"; // Alterar para buscar do navegador.
 
 var app = angular.module('eagle', []);
-app.controller('loginCtrl', function ($scope, $http, $timeout) {
+app.controller('loginCtrl', function ($scope, $http, $timeout, strings) {
     $scope.form = {
         email: "",
         password: ""
     };
+    $scope.strings = strings.strings[language];
     $scope.pagina = "Eagle - Login";
     $scope.shown = false;
     $scope.showAlert = function () {
